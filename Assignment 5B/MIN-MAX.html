@@ -1,0 +1,226 @@
+<!DOCTYPE html>  
+<html lang="en">  
+    <head>  
+        <meta charset="utf-8" />  
+        <title>The Max Min Finder</title>  
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700i&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+    </head>  
+
+    <body>  
+        
+        
+        <!-- Header -->
+        <header role="banner">  
+            <h1>The Max Min Element Finder</h1>  
+        </header>
+
+        <hr>
+
+        <article>
+
+            <h2 >Programs to Find Min and Max Element from Array</h2>
+            <h3 class="h2">Prelogue:</h3>
+            <p>
+                Here are some programs to Find Min And Max Element From Array
+            </p>
+            
+            <br>
+            
+            <h3>Code </h3>
+            <pre>
+            <strong style="font-size:30px">C++ : </strong> 
+            <code>
+                // C++ program of above implementation
+            #include<iostream>
+            using namespace std;
+
+            // Pair struct is used to return
+            // two values from getMinMax()
+            struct Pair
+            {
+                int min;
+                int max;
+            };
+
+            struct Pair getMinMax(int arr[], int n)
+            {
+                struct Pair minmax;	
+                int i;
+                
+                // If there is only one element
+                // then return it as min and max both
+                if (n == 1)
+                {
+                    minmax.max = arr[0];
+                    minmax.min = arr[0];	
+                    return minmax;
+                }
+                
+                // If there are more than one elements,
+                // then initialize min and max
+                if (arr[0] > arr[1])
+                {
+                    minmax.max = arr[0];
+                    minmax.min = arr[1];
+                }
+                else
+                {
+                    minmax.max = arr[1];
+                    minmax.min = arr[0];
+                }
+                
+                for(i = 2; i < n; i++)
+                {
+                    if (arr[i] > minmax.max)	
+                        minmax.max = arr[i];
+                        
+                    else if (arr[i] < minmax.min)	
+                        minmax.min = arr[i];
+                }
+                return minmax;
+            }
+
+            // Driver code
+            int main()
+            {
+                int arr[] = { 1000, 11, 445,
+                            1, 330, 3000 };
+                int arr_size = 6;
+                
+                struct Pair minmax = getMinMax(arr, arr_size);
+                
+                cout << "Minimum element is "
+                    << minmax.min << endl;
+                cout << "Maximum element is "
+                    << minmax.max;
+                    
+                return 0;
+            }
+
+
+            </code>
+            <strong style="font-size:30px">Python :</strong> 
+            <code>
+                            # Python program of above implementation
+
+            # structure is used to return two values from minMax()
+
+            class pair:
+                def __init__(self):
+                    self.min = 0
+                    self.max = 0
+
+            def getMinMax(arr: list, n: int) -> pair:
+                minmax = pair()
+
+                # If there is only one element then return it as min and max both
+                if n == 1:
+                    minmax.max = arr[0]
+                    minmax.min = arr[0]
+                    return minmax
+
+                # If there are more than one elements, then initialize min
+                # and max
+                if arr[0] > arr[1]:
+                    minmax.max = arr[0]
+                    minmax.min = arr[1]
+                else:
+                    minmax.max = arr[1]
+                    minmax.min = arr[0]
+
+                for i in range(2, n):
+                    if arr[i] > minmax.max:
+                        minmax.max = arr[i]
+                    elif arr[i] < minmax.min:
+                        minmax.min = arr[i]
+
+                return minmax
+
+            # Driver Code
+            if __name__ == "__main__":
+                arr = [1000, 11, 445, 1, 330, 3000]
+                arr_size = 6
+                minmax = getMinMax(arr, arr_size)
+                print("Minimum element is", minmax.min)
+                print("Maximum element is", minmax.max)
+
+
+
+            </code>
+            <strong style="font-size:30px">Java :</strong>
+            <code>
+                            // Java program of above implementation
+            public class GFG {
+            /* Class Pair is used to return two values from getMinMax() */
+                static class Pair {
+
+                    int min;
+                    int max;
+                }
+
+                static Pair getMinMax(int arr[], int n) {
+                    Pair minmax = new Pair();
+                    int i;
+
+                    /*If there is only one element then return it as min and max both*/
+                    if (n == 1) {
+                        minmax.max = arr[0];
+                        minmax.min = arr[0];
+                        return minmax;
+                    }
+
+                    /* If there are more than one elements, then initialize min
+                and max*/
+                    if (arr[0] > arr[1]) {
+                        minmax.max = arr[0];
+                        minmax.min = arr[1];
+                    } else {
+                        minmax.max = arr[1];
+                        minmax.min = arr[0];
+                    }
+
+                    for (i = 2; i < n; i++) {
+                        if (arr[i] > minmax.max) {
+                            minmax.max = arr[i];
+                        } else if (arr[i] < minmax.min) {
+                            minmax.min = arr[i];
+                        }
+                    }
+
+                    return minmax;
+                }
+
+                /* Driver program to test above function */
+                public static void main(String args[]) {
+                    int arr[] = {1000, 11, 445, 1, 330, 3000};
+                    int arr_size = 6;
+                    Pair minmax = getMinMax(arr, arr_size);
+                    System.out.printf("\nMinimum element is %d", minmax.min);
+                    System.out.printf("\nMaximum element is %d", minmax.max);
+
+	}
+
+}
+
+                </code>
+            </pre>
+                    
+            <h3>Sample I/P & O/P</h3>
+            <pre>
+            <samp>
+                Output:
+                Minimum element is 1
+                Maximum element is 3000
+            </samp>    
+            </pre>
+                
+            <h3>Complexity</h3>
+            <p>O(N)</p>
+        </article>
+        <hr>
+        <footer>
+            <ul>Created By -Shreyash Malu 2019BTECS00057</ul>
+        </footer>
+    </body>
+</html>
